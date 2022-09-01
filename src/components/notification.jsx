@@ -11,25 +11,36 @@ export const GetStaticProps = async () => {
   })
   // console.log(response.items[0])
   const articles = response.items
+  const posts = Promise.all(articles.map(post => {
+    <div key={post.sys.id}>
+      {post.fields}
+    </div>
+  }))
+  console.log(posts)
   console.log(articles)
   console.log("sss")
+  return (
+    <>
+      { posts }
+    </>
+  )
   // const post = articles.map((item) =>(
   //   <li key={item.sys.id}>{ item.fields.title }</li>
   // ))
   // console.log(post)
-  const ddd = articles.map((post) => (
-    <li key={post.sys.id}>
-      {post.fields.title}
-    </li>
-  ))
-  console.log(ddd)
-  return (
-    <div>
-      <ul>
-        { ddd }
-      </ul>
-    </div>
-  )
+  // const ddd = articles.map((post) => (
+  //   <li key={post.sys.id}>
+  //     {post.fields.title}
+  //   </li>
+  // ))
+  // console.log(ddd)
+  // return (
+  //   <div>
+  //     <ul>
+  //       {ddd}
+  //     </ul>
+  //   </div>
+  // )
   // return {
   //   props: {
   //     // ここでの「text」はリッチテキストを指していますが、各フィールドの名前はコンテンツモデルの作成時に任意のものを設定できます
@@ -38,14 +49,12 @@ export const GetStaticProps = async () => {
   // };
 };
 
-export const Notification = ({articles}) => {
+export const Notification = () => {
   console.log("qqq")
   return(
-    <div>
-      {articles.map((item) =>(
-        <li>{item.fields.title}</li>
-      ))}
-    </div>
+    <ul>
+      <GetStaticProps />
+    </ul>
   )
 }
 // type Props = InferGetStaticPropsType<typeof getStaticProps>;
