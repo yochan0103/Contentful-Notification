@@ -6,7 +6,7 @@ const client = createClient({
   accessToken: "MhNq7BnTfyuzinssfglIRkshvfeIhscTWW4weWbh0c4",
 });
 
-export const Notification = () => {
+export const Notificationlist = () => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
@@ -33,4 +33,4 @@ export const Notification = () => {
   );
 };
 
-export default Notification;
+export default Notificationlist;

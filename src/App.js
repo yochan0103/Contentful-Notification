@@ -1,10 +1,10 @@
 import './App.css';
-import { Notification } from "../src/components/notification"
+import { Notificationlist } from "../src/components/notification"
 
 function App() {
   return (
     <>
-      <Notification />
+      <Notificationlist />
     </>
   )
 }
